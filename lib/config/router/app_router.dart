@@ -1,5 +1,6 @@
 
 import 'package:go_router/go_router.dart';
+import '../../data/models/news_response.dart';
 import '../../presentation/screens/screens.dart';
 
 final approuter = GoRouter(
@@ -14,7 +15,8 @@ final approuter = GoRouter(
       path: '/new-detail',
       name: NewDetailScreen.name,
       builder: (context, state) {
-        return const NewDetailScreen();
+        final article = state.extra as Article?;
+        return NewDetailScreen(article: article);
       },
     ),
 
